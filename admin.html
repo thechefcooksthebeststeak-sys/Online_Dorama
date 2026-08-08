@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kk" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Админ панелі — Online Dorama</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0F0F0F">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230F0F0F'/><path d='M28 24h22c17 0 28 10 28 26s-11 26-28 26H28V24zm18 40c9 0 14-5 14-14s-5-14-14-14h-4v28h4z' fill='%238B5CF6'/></svg>">
+</head>
+<body>
+
+<!-- ══ Жүктелу экраны ══ -->
+<div id="splash" class="splash">
+  <div class="splash__mark">ONLINE<span>DORAMA</span></div>
+  <div class="splash__bar"><i></i></div>
+</div>
+
+<!-- ══ Жоғарғы панель ══ -->
+<header class="topbar is-stuck">
+  <div class="topbar__inner">
+    <a href="index.html" class="logo">ONLINE<span>DORAMA</span></a>
+    <span class="pill pill--accent" style="margin-left:4px">Админ</span>
+
+    <div class="topbar__acts">
+      <span class="muted" id="whoami" style="font-size:13px"></span>
+
+      <button class="iconbtn" id="themeBtn" aria-label="Тақырыпты ауыстыру">
+        <svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></svg>
+      </button>
+
+      <a class="iconbtn" href="index.html" aria-label="Дүкенге қайту">
+        <svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1v-8z"/></svg>
+      </a>
+
+      <button class="btn btn--ghost" id="logoutBtn" hidden>Шығу</button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script src="ui.js"></script>
+<script src="publish.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

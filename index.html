@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="kk" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Online Dorama — дорама дүкені</title>
+<meta name="description" content="Дорама сатып алуға арналған заманауи дүкен. WhatsApp арқылы тапсырыс беріңіз.">
+<meta name="theme-color" content="#0F0F0F">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230F0F0F'/><path d='M28 24h22c17 0 28 10 28 26s-11 26-28 26H28V24zm18 40c9 0 14-5 14-14s-5-14-14-14h-4v28h4z' fill='%238B5CF6'/></svg>">
+</head>
+<body>
+
+<!-- ══ Жүктелу экраны ══ -->
+<div id="splash" class="splash">
+  <div class="splash__mark">ONLINE<span>DORAMA</span></div>
+  <div class="splash__bar"><i></i></div>
+</div>
+
+<!-- ══ Жоғарғы панель ══ -->
+<header class="topbar" id="topbar">
+  <div class="topbar__inner">
+    <a href="#/" class="logo" aria-label="Online Dorama басты бет">ONLINE<span>DORAMA</span></a>
+
+    <nav class="nav" id="nav">
+      <a href="#/" data-nav="/">Басты</a>
+      <a href="#/store" data-nav="/store">Дүкен</a>
+      <a href="#/ai" data-nav="/ai">DORAMA AI</a>
+      <a href="#/profile" data-nav="/profile">Профиль</a>
+      <a href="admin.html" class="nav__admin" hidden>Админ</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <form class="search" id="searchForm" role="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="searchInput" placeholder="Дорама іздеу…" autocomplete="off"
+               aria-label="Дорама іздеу" role="combobox" aria-expanded="false" aria-controls="acList">
+        <div class="ac" id="acList" role="listbox" hidden></div>
+      </form>
+
+      <button class="iconbtn" id="themeBtn" title="Тақырыпты ауыстыру" aria-label="Тақырыпты ауыстыру">
+        <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 13A9 9 0 1111 3a7 7 0 0010 10z"/></svg>
+        <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+      </button>
+
+      <a href="#/cart" class="iconbtn cartbtn" aria-label="Себет">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 11.2a2 2 0 01-2 1.8H9.2a2 2 0 01-2-1.8L6 7z"/><path d="M9 7V5.5a3 3 0 016 0V7"/></svg>
+        <span class="badge" id="cartCount" hidden>0</span>
+      </a>
+
+      <button class="btn btn--ghost" id="authBtn">Кіру</button>
+
+      <button class="iconbtn burger" id="burger" aria-label="Мәзір">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ Беттер осында рендерленеді ══ -->
+<main id="app" class="app"></main>
+
+<!-- ══ Төменгі мәзір (мобиль) ══ -->
+<nav class="tabbar" id="tabbar">
+  <a href="#/" data-nav="/"><svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6v8a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1v-8z"/></svg><span>Басты</span></a>
+  <a href="#/store" data-nav="/store"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg><span>Дүкен</span></a>
+  <a href="#/ai" data-nav="/ai"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><circle cx="9.5" cy="13" r="1.2"/><circle cx="14.5" cy="13" r="1.2"/><path d="M12 7V4"/></svg><span>AI</span></a>
+  <a href="#/cart" data-nav="/cart"><svg viewBox="0 0 24 24"><path d="M6 7h12l-1.2 11.2a2 2 0 01-2 1.8H9.2a2 2 0 01-2-1.8L6 7z"/><path d="M9 7V5.5a3 3 0 016 0V7"/></svg><span>Себет</span></a>
+  <a href="#/profile" data-nav="/profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20a7 7 0 0114 0"/></svg><span>Профиль</span></a>
+</nav>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="logo logo--sm">ONLINE<span>DORAMA</span></div>
+      <p class="muted">Корей, қытай және түрік дорамаларының қазақша дүкені.</p>
+    </div>
+    <div class="footer__links">
+      <a href="#/store">Дүкен</a>
+      <a href="#/profile">Тапсырыстарым</a>
+      <a href="#" id="waFooter" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer__bar muted">© <span id="year"></span> Online Dorama</div>
+</footer>
+
+<!-- ══ Кіру / тіркелу терезесі ══ -->
+<div class="modal" id="authModal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-label="Аккаунт">
+    <button class="modal__x" data-close aria-label="Жабу">&times;</button>
+    <div class="tabs" id="authTabs">
+      <button class="tab is-active" data-tab="login">Кіру</button>
+      <button class="tab" data-tab="signup">Тіркелу</button>
+    </div>
+
+    <form id="loginForm" class="form">
+      <label>Email<input type="email" name="email" required placeholder="sen@mail.kz"></label>
+      <label>Құпиясөз<input type="password" name="password" required minlength="6" placeholder="••••••"></label>
+      <p class="form__err" id="loginErr" hidden></p>
+      <button class="btn btn--primary btn--full" type="submit">Кіру</button>
+    </form>
+
+    <form id="signupForm" class="form" hidden>
+      <label>Аты-жөні<input type="text" name="name" required placeholder="Аяулым Серік"></label>
+      <label>Email<input type="email" name="email" required placeholder="sen@mail.kz"></label>
+      <label>Құпиясөз<input type="password" name="password" required minlength="6" placeholder="кемінде 6 таңба"></label>
+      <p class="form__err" id="signupErr" hidden></p>
+      <button class="btn btn--primary btn--full" type="submit">Аккаунт ашу</button>
+    </form>
+
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<!-- Firebase SDK (compat — қарапайым script тегімен жұмыс істейді) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="config.js"></script>
+<script src="store.js"></script>
+<script src="search.js"></script>
+<script src="ai.js"></script>
+<script src="ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
